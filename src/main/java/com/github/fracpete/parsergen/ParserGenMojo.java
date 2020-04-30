@@ -43,6 +43,9 @@ public class ParserGenMojo extends AbstractMojo {
     String[] options;
     File dir;
 
+    if (directories.length == 0)
+      throw new MojoExecutionException("At least one directory needs to be specified!");
+
     for (String directory: directories) {
       dir = new File(directory);
       getLog().info("Processing directory: " + dir);
